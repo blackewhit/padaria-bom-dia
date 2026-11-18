@@ -1,39 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-   <html lang="pt-BR">
-     <head> 
-        <Meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-             <title>padaria bom dia</title>
-              <title><img src="padaria bom dia.png" alt="">
-            </title> <link rel="stylesheet" href="style.css"> 
-            <link rel="stylesheet" href="header.php">
-        </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pães fresquinhos e produtos artesanais da Padaria Bom Dia.">
+        <title>Padaria Bom Dia</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
     <body>
         <header>
-            <h1>Padaria bom dia</h1>
+            <img src="assets/ace.jpg" class="logo-padaria" alt="Logo Ace pão doce">
+            <h1>Padaria Bom Dia</h1>
+            <nav class="navegacao-topo" aria-label="Navegação principal">
+                <a href="#produtos">Produtos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+            <button class="abrir-carrinho" type="button" aria-controls="painel-carrinho" aria-expanded="false" onclick="alternarCarrinho()">🛒 Carrinho <span id="quantidade-carrinho">0</span></button>
             <p>Um bom dia começa com um pão quentinho</p>
         
+        </header>
         <main>
-            <h2>Quem somos</h2>
-            <button>saiba mais</button>
+            <section class="apresentacao" aria-labelledby="titulo-apresentacao">
+                <span class="chamada">Feito com carinho, saindo do forno</span>
+                <h2 id="titulo-apresentacao">Um bom dia começa com pão quentinho</h2>
+                <p>Escolha seus favoritos e peça direto pelo WhatsApp.</p>
+                <a class="link-produtos" href="#produtos">Ver produtos</a>
+            </section>
+            <section class="secao-produtos" id="produtos" aria-labelledby="titulo-produtos">
+                <div class="titulo-secao">
+                    <span class="chamada">Fresquinhos para você</span>
+                    <h2 id="titulo-produtos">Nossos produtos</h2>
+                    <p class="nota-precos">Preços de referência; podem variar conforme o tamanho e a produção.</p>
+                </div>
+    <section class="pão-caseiro" aria-label="Produtos para comprar">
+        <article class="item-compra">
+            <img src="assets/pao-caseiro.jpg" class="produto-foto" alt="Pão caseiro">
+            <h2>Pão caseiro</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão caseiro')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/bagel.webp" class="produto-foto" alt="Bagel">
+            <h2>Bagel</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Bagel')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/de-forma.jpg" class="produto-foto" alt="Pão de forma">
+            <h2>Pão de forma</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão de forma')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/brioche.jpg" class="produto-foto" alt="Brioche">
+            <h2> brioche </h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Brioche')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/pao-australiano.jpg" class="produto-foto" alt="Pão australiano">
+            <h2>Pão australiano</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão australiano')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/pao-de-queijo.webp" class="produto-foto" alt="Pão de queijo">
+            <h2>Pão de queijo</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão de queijo')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/pao-flor.jpg" class="produto-foto" alt="Pão flor">
+            <h2>Pão flor</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão flor')">Adicionar ao carrinho</button>
+        </article>
+        <article class="item-compra">
+            <img src="assets/pao-colmeia.jpg" class="produto-foto" alt="Pão colmeia">
+            <h2>Pão comeia</h2>
+            <button class="botao-compra" type="button" onclick="adicionarAoCarrinho('Pão de colmeia')">Adicionar ao carrinho</button>
+        </article>
+    </section>
+            </section>
         </main>
-        <footer>Francisco Macedo - pi</footer>
-         <address>contato:89994726990</address>
-         <div>
-            <a href="#">inicio</a>
-             <a href="#">serviços</a>
-              <a href="#">carrinho</a>
-         </div>
-    </header>
+        <footer class="rodape" id="contato">
+            <span>Padaria Bom Dia · Francisco Macedo, PI</span>
+            <a href="tel:+5589994726990">Ligue: (89) 99472-6990</a>
+        </footer>
+    <aside id="painel-carrinho" class="painel-carrinho" aria-label="Seu carrinho" hidden>
+        <div class="cabecalho-carrinho"><h2>Seu carrinho</h2><button class="fechar-carrinho" type="button" aria-label="Fechar carrinho" onclick="alternarCarrinho(false)">×</button></div>
+        <ul id="itens-carrinho" class="itens-carrinho"><li class="carrinho-vazio">Seu carrinho está vazio.</li></ul>
+        <p id="total-carrinho" class="total-carrinho">Total estimado: R$ 0,00</p>
+        <button id="finalizar-pedido" class="finalizar-pedido" type="button" onclick="finalizarPedidoComTotal()" disabled>Fazer pedido pelo WhatsApp</button>
+    </aside>
+    <script>
+        const carrinho = {};
+        const precosProdutos = {
+            'pão caseiro': { valor: 12.00, unidade: '500 g' },
+            'bagel': { valor: 5.50, unidade: 'unidade' },
+            'pão de forma': { valor: 10.50, unidade: '500 g' },
+            'brioche': { valor: 4.00, unidade: 'unidade (~100 g)' },
+            'pão australiano': { valor: 12.00, unidade: '300 g' },
+            'pão de queijo': { valor: 3.00, unidade: 'unidade (~50 g)' },
+            'pão flor': { valor: 3.50, unidade: 'unidade (~50 g)' },
+            'pão comeia': { valor: 45.00, unidade: 'colmeia inteira (estimativa)' },
+            'pão de colmeia': { valor: 45.00, unidade: 'colmeia inteira (estimativa)' }
+        };
+        const formatarMoeda = valor => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
+
+        document.querySelectorAll('.item-compra').forEach(cartao => {
+            const titulo = cartao.querySelector('h2');
+            const botao = cartao.querySelector('.botao-compra');
+            const produto = precosProdutos[titulo.textContent.trim().toLocaleLowerCase('pt-BR')];
+            if (!produto || !botao) return;
+            const preco = document.createElement('p');
+            preco.className = 'preco-produto';
+            preco.textContent = `${formatarMoeda(produto.valor)} · ${produto.unidade}`;
+            cartao.insertBefore(preco, botao);
+        });
+        function adicionarAoCarrinho(produto) {
+            carrinho[produto] = (carrinho[produto] || 0) + 1;
+            atualizarCarrinho();
+            document.getElementById('painel-carrinho').hidden = false;
+            document.querySelector('.abrir-carrinho').setAttribute('aria-expanded', 'true');
+        }
+        function alterarQuantidade(produto, delta) {
+            carrinho[produto] += delta;
+            if (carrinho[produto] <= 0) delete carrinho[produto];
+            atualizarCarrinho();
+        }
+        function atualizarCarrinho() {
+            const lista = document.getElementById('itens-carrinho');
+            const produtos = Object.entries(carrinho);
+            const total = produtos.reduce((soma, [, qtd]) => soma + qtd, 0);
+            document.getElementById('quantidade-carrinho').textContent = total;
+            document.getElementById('finalizar-pedido').disabled = total === 0;
+            lista.innerHTML = produtos.length ? produtos.map(([nome, qtd]) => `<li class="linha-carrinho"><span>${nome}</span><div class="controles-quantidade"><button type="button" onclick="alterarQuantidade('${nome}', -1)" aria-label="Remover um ${nome}">−</button><span>${qtd}</span><button type="button" onclick="alterarQuantidade('${nome}', 1)" aria-label="Adicionar um ${nome}">+</button></div></li>`).join('') : '<li class="carrinho-vazio">Seu carrinho está vazio.</li>';
+        }
+        function atualizarCarrinho() {
+            const lista = document.getElementById('itens-carrinho');
+            const produtos = Object.entries(carrinho);
+            const quantidadeTotal = produtos.reduce((soma, [, quantidade]) => soma + quantidade, 0);
+            const valorTotal = produtos.reduce((soma, [nome, quantidade]) => soma + (precosProdutos[nome.toLocaleLowerCase('pt-BR')]?.valor || 0) * quantidade, 0);
+            document.getElementById('quantidade-carrinho').textContent = quantidadeTotal;
+            document.getElementById('total-carrinho').textContent = `Total estimado: ${formatarMoeda(valorTotal)}`;
+            document.getElementById('finalizar-pedido').disabled = quantidadeTotal === 0;
+            lista.innerHTML = produtos.length ? produtos.map(([nome, quantidade]) => {
+                const valor = precosProdutos[nome.toLocaleLowerCase('pt-BR')]?.valor || 0;
+                return `<li class="linha-carrinho"><span>${nome}<small>${formatarMoeda(valor)} cada</small></span><div class="controles-quantidade"><button type="button" onclick="alterarQuantidade('${nome}', -1)" aria-label="Remover um ${nome}">−</button><span>${quantidade}</span><button type="button" onclick="alterarQuantidade('${nome}', 1)" aria-label="Adicionar um ${nome}">+</button><strong>${formatarMoeda(valor * quantidade)}</strong></div></li>`;
+            }).join('') : '<li class="carrinho-vazio">Seu carrinho está vazio.</li>';
+        }
+
+        function finalizarPedidoComTotal() {
+            const produtos = Object.entries(carrinho);
+            const itens = produtos.map(([nome, quantidade]) => {
+                const valor = precosProdutos[nome.toLocaleLowerCase('pt-BR')]?.valor || 0;
+                return `• ${nome}: ${quantidade} × ${formatarMoeda(valor)} = ${formatarMoeda(valor * quantidade)}`;
+            }).join('\n');
+            const total = produtos.reduce((soma, [nome, quantidade]) => soma + (precosProdutos[nome.toLocaleLowerCase('pt-BR')]?.valor || 0) * quantidade, 0);
+            const mensagem = `Olá! Gostaria de fazer este pedido:\n${itens}\nTotal estimado: ${formatarMoeda(total)}`;
+            window.open(`https://wa.me/5589994726990?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function alternarCarrinho(abrir) {
+            const painel = document.getElementById('painel-carrinho');
+            painel.hidden = abrir === undefined ? !painel.hidden : !abrir;
+            document.querySelector('.abrir-carrinho').setAttribute('aria-expanded', String(!painel.hidden));
+        }
+        function finalizarPedido() {
+            const itens = Object.entries(carrinho).map(([nome, qtd]) => `• ${nome}: ${qtd}`).join('\n');
+            const mensagem = `Olá! Gostaria de fazer este pedido:\n${itens}`;
+            window.open(`https://wa.me/5589994726990?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener,noreferrer');
+        }
+
+    </script>
     </body>
-    <article><img src="assets/pao-caseiro.jpg" class="pao" alt="primeira imagem">
-        <figcaption>Faz o L</figcaption>
-    </article>
-    <article>
-        <img src="padaria bom dia.png" class="banner" alt="segunda imagem">
-    </article>
-    <img src="assets/bagel.webp" class="bagel" alt="terceira imagem">
-    <img src="assets/de-forma.jpg" class="branco" alt="imagem">
-    <button>comprar</button>
-    </html>
+</html>
